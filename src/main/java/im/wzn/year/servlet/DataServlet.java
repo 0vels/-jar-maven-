@@ -26,6 +26,7 @@ public class DataServlet extends HttpServlet {
 		
 		// 实际的逻辑是在这里
 		PrintWriter out = response.getWriter();
+		//添加一个百分比
 		out.println("<h1>" + LunarProgress.getPercent() + "</h1>");
 	}
 
