@@ -44,14 +44,15 @@ public class LunarProgress {
 		String percent = percent(now, end, begin);
 
 		String sss = concat(percent.substring(0, percent.length() - 1));
-
+		//返回数据 “今年过去了82% ░░░░░”
+		String back =  "今年过去了"+percent+"\r\n"+sss;
 		// 当前年的第几天,计算公历百分比要简单的多啊
 		// int day_of_year = cal.get(Calendar.DAY_OF_YEAR);
 		// Lunar lunar = LunarSolarConverter.SolarToLunar(solar);
 		// System.out.println(b + h + hh + lunar.lunarYear + "-" + lunar.lunarMonth +
 		// "-" + lunar.lunarDay);
-		System.out.println(sss);
-		return sss;
+		System.out.println(back);
+		return back;
 	}
 
 	private static String concat(String percent) {
@@ -91,7 +92,7 @@ public class LunarProgress {
 		double fen = (baia - baic) / (baib - baic);
 		DecimalFormat decimalFormat = new DecimalFormat("##%");
 		baifenbi = decimalFormat.format(fen);
-		System.out.println(baifenbi);
+//		System.out.println(baifenbi);
 		return baifenbi;
 	}
 
