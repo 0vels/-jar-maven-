@@ -7,6 +7,8 @@ import java.util.Calendar;
 
 import javax.xml.crypto.Data;
 
+import im.wzn.year.servlet.SendGet;
+
 public class LunarProgress {
 
 	/*
@@ -15,7 +17,11 @@ public class LunarProgress {
 	 */
 	public static void main(String[] args) {
 
-		
+		//发送 GET 请求
+//        String s=SendGet.sendGet("https://maker.ifttt.com/trigger/year/with/key/J3hGogKnuR7a7gFJecyLK", "{\"value1\":\"ds1\"}");
+		 //发送 POST 请求
+        String s=SendGet.sendPost("https://maker.ifttt.com/trigger/year/with/key/J3hGogKnuR7a7gFJecyLK", "{\"value1\":\"ds2\"}");
+        System.out.println(s);
 
 	}
 	
