@@ -17,11 +17,11 @@ public class LunarProgress {
 	 */
 	public static void main(String[] args) {
 
-		//发送 GET 请求
-//        String s=SendGet.sendGet("https://maker.ifttt.com/trigger/year/with/key/J3hGogKnuR7a7gFJecyLK", "{\"value1\":\"ds1\"}");
-		 //发送 POST 请求
-        String s=SendGet.sendPost("https://maker.ifttt.com/trigger/year/with/key/J3hGogKnuR7a7gFJecyLK", "{\"value1\":\"ds2\"}");
-        System.out.println(s);
+//		//发送 GET 请求
+//        String s=SendGet.sendGet("https://maker.ifttt.com/trigger/year/with/key/J3hGogKnuR7a7gFJecyLK", "value1=ds1");
+//		 //发送 POST 请求
+////        String s=SendGet.sendPost("https://maker.ifttt.com/trigger/year/with/key/J3hGogKnuR7a7gFJecyLK", "{\"value1\":\"ds2\"}");
+//        System.out.println(s);
 
 	}
 	
@@ -52,6 +52,7 @@ public class LunarProgress {
 		String sss = concat(percent.substring(0, percent.length() - 1));
 		//返回数据 “今年过去了82% ░░░░░”
 		String back =  "今年过去了"+percent+"\r\n"+sss;
+		SendGet.sendPost("https://maker.ifttt.com/trigger/year/with/key/J3hGogKnuR7a7gFJecyLK", "value1="+back);
 		// 当前年的第几天,计算公历百分比要简单的多啊
 		// int day_of_year = cal.get(Calendar.DAY_OF_YEAR);
 		// Lunar lunar = LunarSolarConverter.SolarToLunar(solar);
