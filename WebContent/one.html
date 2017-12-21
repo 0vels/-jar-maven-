@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Wang.</title>
+</head>
+
+<body background="image1.jpg">
+
+    <script type="text/javascript">
+
+        function GetJSON() {
+
+            var xmlHttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHttp");
+
+            xmlHttp.open("get", "getrandom", true);
+
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    var result = xmlHttp.responseText;
+                    //使用eval函数使返回的字符串变成js对象
+                    var resultdata = eval("(" + result + ")");
+                    console.log(resultdata.id);
+                    console.log(resultdata.urls.raw);
+                    var imageUrl = "https://images.unsplash.com/photo-1501632891-77ecd3338aba";
+                    // var imageUrl = resultdata.urls.raw;
+                    LoadImage(imageUrl);
+                }
+            }
+
+            xmlHttp.send();
+        }
+        function LoadImage(imageUrl) {
+            if (document.images) {
+                var img = new Image();
+
+                // img.src = imageUrl;
+                var url = imageUrl + "/callback=update";
+                xmlHttp.open("get", url,false);
+    
+                // img.onload = function () { //图片下载完毕时异步调用callback函数。
+                //     callback.call(img);   // 将callback函数this指针切换为img。
+                //     document.getElementById('myDiv').innerHTML = img;
+                // };
+            }
+        }
+        function update() {
+            alert("data.city");
+        }
+
+    </script>
+    <div id="myDiv">
+        <img alt="上" />
+    </div>
+    <button type="button" onclick="GetJSON()">Change Content</button>
+
+</body>
+
+</html>

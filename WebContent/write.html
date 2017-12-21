@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>write data</title>
+    <script>
+        function getData() {
+            var input = document.getElementById('write');
+            input.value;
+            var xmlHttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHttp");
+            xmlHttp.open("post", "filewrite", false);
+            xmlHttp.setRequestHeader('content-type', 'application/json');
+            xmlHttp.send(input.value);
+            console.log(input.value);
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="text" id="write">
+    <button id="submit" onclick="getData()">提交</button>
+
+</body>
+
+</html>
